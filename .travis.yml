@@ -12,13 +12,13 @@ install:
   - cabal-1.22 install --only-dependencies --enable-tests
 
 script:
-  - cabal-1.22 configure --enable-tests --enable-library-coverage -v2
+  - cabal-1.22 configure --enable-tests --enable-coverage -v2
   - cabal-1.22 build
   - cabal-1.22 test --show-details=streaming
 
 after_script:
-  - git clone -b hpc-vanilla-directory https://github.com/guillaume-nargeot/hpc-coveralls
+  - git clone -b response-error-handling https://github.com/guillaume-nargeot/hpc-coveralls
   - cd hpc-coveralls
   - cabal-1.22 install
   - cd ..
-  - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls --exclude-dir=test --display-report test-all
+  - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls --exclude-dir=test --print-response test-all
