@@ -22,4 +22,6 @@ after_script:
   - cabal-1.22 install
   - cd ..
   - tree dist/hpc/vanilla/
+  - cat dist/hpc/vanilla/tix/hpc-coveralls-testing-0.1.0.0/hpc-coveralls-testing-0.1.0.0.tix
+  - cat dist/hpc/vanilla/tix/test-all/test-all.tix
   - hpc-coveralls/dist/build/hpc-coveralls/hpc-coveralls --exclude-dir=test --print-response test-all
